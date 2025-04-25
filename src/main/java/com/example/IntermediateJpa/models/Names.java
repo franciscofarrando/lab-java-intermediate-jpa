@@ -1,5 +1,8 @@
 package com.example.IntermediateJpa.models;
 
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public class Names {
     private String firstName;
     private String lastName;

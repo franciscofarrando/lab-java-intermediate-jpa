@@ -1,5 +1,11 @@
 package com.example.IntermediateJpa.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Tasks {
     private String title;
     private String dueDate;

@@ -1,9 +1,16 @@
 package com.example.IntermediateJpa.models;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Contacts {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String title;
     private String company;
+    @Embedded
     private Names names;
 
     public Contacts() {
@@ -14,6 +21,14 @@ public class Contacts {
         this.title = title;
         this.company = company;
         this.names = names;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -51,7 +66,8 @@ public class Contacts {
     @Override
     public String toString() {
         return "Contacts{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", title='" + title + '\'' +
                 ", company='" + company + '\'' +
                 ", names=" + names +

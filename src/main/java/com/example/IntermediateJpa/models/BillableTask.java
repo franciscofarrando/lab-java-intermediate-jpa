@@ -1,5 +1,8 @@
 package com.example.IntermediateJpa.models;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class BillableTask extends Tasks{
     private double hourlyRate;
 
