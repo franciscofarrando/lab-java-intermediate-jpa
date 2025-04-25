@@ -1,12 +1,13 @@
 package com.example.IntermediateJpa.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
+import jakarta.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Tasks {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String title;
     private String dueDate;
     private boolean status;
@@ -18,6 +19,14 @@ public class Tasks {
         this.title = title;
         this.dueDate = dueDate;
         this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -47,7 +56,8 @@ public class Tasks {
     @Override
     public String toString() {
         return "Tasks{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", dueDate='" + dueDate + '\'' +
                 ", status=" + status +
                 '}';
